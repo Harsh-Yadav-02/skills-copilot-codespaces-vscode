@@ -1,16 +1,18 @@
-// Import required modules
-const express = require('express');
+// Importing express module
+const express = require("express")
+const app = express()
 
-// Create an instance of Express
-const app = express();
-const port = 3000; // You can change this port to any available port you prefer
+// Handling GET / request
+app.use("/", (req, res, next) => {
+	res.send("This is the express server")
+})
 
-// Define a basic route
-app.get('/', (req, res) => {
-  res.send('Hello, this is your web server!');
-});
+// Handling GET /hello request
+app.get("/hello", (req, res, next) => {
+	res.send("This is the hello response");
+})
 
-// Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-});
+// Server setup
+app.listen(3000, () => {
+	console.log("Server is Running")
+})
